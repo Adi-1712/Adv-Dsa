@@ -31,16 +31,14 @@ class avl {
     }
     void LRrotation(node *i)
     {
-    	node *j, *ip;
-        i=i->left;
-    	i=j->parent;
-    	j=i->right;
-    	ip=i->parent;
-    	j->parent=ip;
-        ip->left=j;
-        i->parent=j;
-        i->right=NULL;
-        i=i->parent;
+    	node *j,*k;
+        j=i->left;
+        k=j->right;
+        i->left=k;
+        k->parent=i;
+        k->left=j;
+        j->parent=k;
+        j->right=NULL;
         LLrotation(i);
         return;
         
@@ -113,12 +111,11 @@ int main()
     t1.insert(100);
     t1.display();
     */
+     t1.insert(300);
     t1.insert(400);
-    t1.insert(300);
-    //t1.insert(200);
-    t1.insert(500);
+    t1.insert(200); 
     t1.insert(100);
-    t1.insert(250);
+    t1.insert(150);
     t1.display();
     
    return 0;
